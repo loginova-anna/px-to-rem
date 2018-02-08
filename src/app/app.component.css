@@ -1,0 +1,17 @@
+.field {
+    width: 50%;
+    margin-right: -4px;
+    height: 500px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.wrapper {
+    height: 100%;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header__title {
+    color: red;
+}
