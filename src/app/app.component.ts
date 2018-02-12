@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   input: string;
   output: string;
-
+  fontsize = 16;
+  tofixed = 3;
   ngOnInit() {
 
   }
@@ -17,13 +18,13 @@ export class AppComponent implements OnInit {
     if (!this.input) {
       return;
     }
-    var regex = /(\d+)\s*px/g;
-    this.output = this.input.replace(regex, this.pxtorem);
+    const regex = /(\d+)\s*px/g;
+    this.output = this.input.replace(regex, this.pxtorem.bind(this));
   }
 
   pxtorem(match) {
-    let px = parseInt(match);
-    return px/16 + 'rem';
+    const px = parseInt(match, 10);
+    return ((px / (this.fontsize || 16)).toFixed(this.tofixed || 3) + 'rem');
   }
 
 }

@@ -1,9 +1,62 @@
+.header {
+    margin-top: 5px;
+    border-top: 2px solid #8c6060;
+}
+
+.main {
+    height: 100%;
+    white-space: nowrap;
+}
+
+.main__settings {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.main__action-button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    border: 1px solid #ededed;
+    text-align: center;
+    padding: 10px;
+    border-radius: 3px;
+    outline: none;
+    margin-top: 20px;
+    font-family: Arial;
+    color: #8c6060;
+    cursor: pointer;
+}
+
 .field {
-    width: 50%;
-    margin-right: -4px;
-    height: 500px;
-    border: 1px solid black;
+    width: 49%;
+    max-width: 49%;
+    min-width: 49%;
+    margin-right: calc(2% - 4px);
+    height: 60%;
+    border: 1px solid #ededed;
     display: inline-block;
+    padding: 10px;
+    border-radius: 3px;
+    vertical-align: top;
+    outline: none;
+}
+
+.field:focus {
+    border-color: #8c6060;
+}
+
+.field_setting {
+    width: 100px;
+    max-width: 100px;
+    min-width: 100px;
+    height: auto;
+
+}
+
+.main__setting {
+    display: inline-block;
+    margin-right: 20px;
 }
 
 .wrapper {
@@ -13,5 +66,17 @@
 }
 
 .header__title {
-    color: red;
+    color: #8c6060;
+    font-family: Arial;
+}
+
+.header__title_arrow {
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+}
+
+.rotated-arrow {
+    display: inline-block;
+    transform: rotate(90deg);
 }
