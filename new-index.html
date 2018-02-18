@@ -29,11 +29,11 @@
             <div class="main__settings">
                 <div class="main__setting setting">
                 <p class="setting__label">root fontsize</p>
-                <input class="field field_setting" onchange="setFontsize(this.value)">
+                <input class="field field_setting" onchange="setFontsize(this.value)" value="16">
                 </div>
                 <div class="main__setting">
                     <p class="setting__label">decimal range</p>
-                <input class="field field_setting" onchange="setTofixed(this.value)">
+                <input class="field field_setting" onchange="setTofixed(this.value)" value="3">
                 </div>
             </div>
             <textarea id="inputText" class="main__field field field_input" onkeypress="transform()" onchange="transform()"></textarea>
@@ -63,7 +63,7 @@
             tofixed = ev;
             transform();
         }
-        
+
         transform = function() {
             let input = getInputText();
             if (!input) {
