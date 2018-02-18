@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>px to rem</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon/site.webmanifest">
+  <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#8c6060">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="msapplication-TileColor" content="#00aba9"> 
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1 class="header__title">px to rem <span class="header__title header__title_arrow rotated-arrow" onclick="transform()">&#8682;</span></h1>
+        </header>
+        <section class="main">
+            <div class="main__description">
+                <p>
+        
+                </p>
+            </div>
+            <div class="main__settings">
+                <div class="main__setting setting">
+                <p class="setting__label">root fontsize</p>
+                <input class="field field_setting" onchange="setFontsize(this.value)">
+                </div>
+                <div class="main__setting">
+                    <p class="setting__label">decimal range</p>
+                <input class="field field_setting" onchange="setTofixed(this.value)">
+                </div>
+            </div>
+            <textarea id="inputText" class="main__field field field_input" onkeypress="transform()" onchange="transform()"></textarea>
+            <textarea id = "outputText" class="main__field field field_ouput" readonly></textarea>
+            <div class="main__action-button" onclick="transform()">Go!<span class="rotated-arrow rotated-arrow_sm">&nbsp;&#8682;</span></div>
+        
+        </section>
+    </div> 
+    <script>
+        let fontsize = 16;
+        let tofixed = 3;
+
+        getInputText = function() {
+            return document.getElementById('inputText').value;
+        }
+
+        setOutputText = function(text) {
+            document.getElementById('outputText').value = text;
+        }
+
+        setFontsize = function(ev) {
+            fontsize = ev;
+            transform();
+        }
+
+        setTofixed = function(ev) {
+            tofixed = ev;
+            transform();
+        }
+        
+        transform = function() {
+            let input = getInputText();
+            if (!input) {
+                return;
+            }
+            const regex = /(\d+)\s*px/g;
+            let output = input.replace(regex, this.pxtorem.bind(this));
+            setOutputText(output);
+        }
+
+        pxtorem = function(match) {
+            const px = parseInt(match, 10);
+            return ((px / (fontsize || 16)).toFixed(tofixed || 3) + 'rem');
+        }
+    </script>             
+</body>
+</html>
